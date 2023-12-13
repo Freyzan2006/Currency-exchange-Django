@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="container">
+        <form action="" method="post" class = "card">
+            {% csrf_token %}
+            <div class = "card-header d-flex justify-content-center">
+                <h2 class = "card-title">Конвертер валюты</h2>
+            </div>
+            <div class = "card-body d-flex gap-5 w-100 justify-content-center">
+                <div class="CARD_ITEM">
+                    <label for="amount">Сумма*</label>
+                    <input class = "form-control" placeholder="Введите число" type="number" name = "from-amount" id = "amount" {% if from_amount %} value="{{ from_amount }}"{% endif %}>
+                </div>
+                <div class="CARD_ITEM">
+                    <label for="from_curr">Отдаём*</label>
+                    <select class = "form-control"  name="from_curr" id="from_curr" value = "{{ from_curr }}">
+                        {% for currencie in currencies %}
+                            <option value="{{ currencie }}" {% if from_curr == currencie %}selected{% endif %}>{{ currencie }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="CARD_ITEM">
+                    <label for="to_curr">Получаем*</label>
+                    <select class = "form-control" name="to_curr" id="to_curr" value = "{{ to_curr }}">
+                        
+                        {% for currencie in currencies %}
+                            <option value="{{ currencie }}" {% if to_curr == currencie %}selected{% endif %}>{{ currencie }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            {% if converted_amount %}
+                <div class="card col-6 p-0 m-auto">
+                    <div class="card-header text-center">
+                        <h5>Отдаём <b>{{ converted_amount.base_code }}</b><br> 
+                            Получаем <b>{{ converted_amount.target_code }}</b>
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        {% if converted_amount.result == "success" %}
+                            <h4 class = "card-title">Результат: {{ result }}</h4>
+                        {% else %}
+                            <p>Произошла не предвиденная ошибка. Попробуйте потом</p>
+                        {% endif %}
+                        
+                        
+                    </div>
+                </div>
+            {% endif %}
+            <div class = "card-footer d-flex justify-content-center">
+                <button type="submit" class = "btn btn-success">Расчитать</button>
+            </div> 
+        </form>
+    </div>
+{% endblock main %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
